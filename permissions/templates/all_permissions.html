@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="col-xs-12 col-sm-9">
+        <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+        </p>
+        <div class="jumbotron">
+            <h1>Welcome to blogython!</h1>
+            <p>This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some
+                responsive-range viewport sizes to see it in action.</p>
+        </div>
+        <div class="row">
+            <table class="table table-hover">
+                <tr>
+                    <th>ID</th>
+                    <th>Permission</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+                {% for perm in permissions %}
+                <tr>
+                    <td>{{ perm.id }}</td>
+                    <td>{{ perm.title }}</td>
+                    <td>{{ perm.description }}</td>
+                    <td>
+                        <a href="{% url 'permissions:edit_permission' perm.pk %}" class="btn btn-primary">Edit</a>
+                        <a href="{% url 'permissions:delete_permission' perm.pk %}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div><!--/row-->
+    </div><!--/.col-xs-12.col-sm-9-->
+
+{% endblock %}

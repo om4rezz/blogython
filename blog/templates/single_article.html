@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="col-xs-12 col-sm-9">
+        <h1>{{ article.title }}</h1>
+        <hr>
+        <img style="margin-bottom: 20px" src="/blog{{ article.image.url }}" class="col-md-12">
+        <br>
+        <br>
+        <p>{{ article.body }}</p>
+    </div><!--/.col-xs-12.col-sm-9-->
+
+{% endblock %}

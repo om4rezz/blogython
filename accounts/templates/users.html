@@ -1,0 +1,35 @@
+<!-- templates/signup.html -->
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}All users{% endblock %}
+
+{% block content %}
+
+    <div class="col-xs-12 col-sm-9">
+
+        <h2>All users</h2>
+        <hr>
+
+        <table class="table table-hover">
+            <tr>
+                <th>ID</th>
+                <th>username</th>
+                <th>fullname</th>
+                <th>actions</th>
+            </tr>
+            {% for user in users %}
+
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.get_full_name }}</td>
+                    <td>
+                    <a href="{% url 'accounts:edit_user' user.id %}" class="btn btn-success">Edit</a>
+                    <button class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,20 @@
+<!-- templates/signup.html -->
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Edit user{% endblock %}
+
+{% block content %}
+
+    <h2>Sign up</h2>
+
+    <div class="col-xs-12 col-sm-9">
+
+        <form method="post">
+            {% csrf_token %}
+            {{ user_form|crispy }}
+            {{ account_form|crispy }}
+            <button type="submit">Update user</button>
+        </form>
+    </div>
+{% endblock %}

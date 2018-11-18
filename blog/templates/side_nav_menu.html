@@ -1,0 +1,15 @@
+<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+    <div class="list-group">
+        <a href="{% url 'blog:add_articles' %}" class="list-group-item active">New article</a>
+        <a href="{% url 'blog:all_articles' %}" class="list-group-item">Blog</a>
+        <a href="{% url 'permissions:all_permissions' %}" class="list-group-item">Permissions</a>
+        <a href="{% url 'accounts:all_users' %}" class="list-group-item">Users</a>
+        <a href="{% url 'admin:index' %}" class="list-group-item">Django admin</a>
+        {% if url_primary == 'blog' and url_suffix == 'show' %}
+            <a href="{% url 'blog:edit_article' article.id %}" class="list-group-item">Edit</a>
+            <a href="{% url 'blog:delete_article' article.id %}" class="list-group-item">Delete</a>
+        {% endif %}
+        <a href="#" class="list-group-item">Link</a>
+        <a href="{% url 'logout' %}" class="list-group-item">Logout</a>
+    </div>
+</div><!--/.sidebar-offcanvas-->
